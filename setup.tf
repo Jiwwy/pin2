@@ -110,7 +110,7 @@ resource "docker_image" "nginx" {
 # Crear un contenedor con la imagen NGINX
 resource "docker_container" "nginx_container" {
   name  = "nginx_tf"
-  image = docker_image.nginx.latest
+  image = docker_image.nginx.name
   ports {
     internal = 80
     external = 8080
