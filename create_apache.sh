@@ -1,16 +1,5 @@
-#!/bin/bash
-
-  # Actualizar los paquetes existentes
-  sudo yum update -y
-
-  # Instalar Docker usando amazon-linux-extras
-  sudo amazon-linux-extras install docker -y
-
-  # Iniciar el servicio Docker
-  sudo service docker start
-
-  # Habilitar Docker para que inicie con el sistema
-  sudo systemctl enable docker
-
-  # Agregar el usuario ec2-user al grupo docker
-  sudo usermod -aG docker ec2-user
+#! /bin/bash
+sudo yum update -y
+sudo yum install -y httpd.x86_64
+sudo systemctl enable httpd --now
+echo "<h1> PIN2 Jimmy Faican 10-01-2025 </h1>" > /var/www/html/index.html
