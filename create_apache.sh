@@ -1,5 +1,15 @@
-#! /bin/bash
-sudo yum update -y
-sudo yum install -y httpd.x86_64
-sudo systemctl enable httpd --now
-echo "<h1> PIN2 Jimmy Faican 10-01-2025 </h1>" > /var/www/html/index.html
+#!/bin/bash
+
+echo "Actualizando paquetes..."
+sudo apt update -y && sudo apt upgrade -y
+
+echo "Instalando Apache HTTP Server..."
+sudo apt install apache2 -y
+
+echo "Habilitando y arrancando el servicio..."
+sudo systemctl enable apache2
+sudo systemctl start apache2
+
+echo "Permitiendo tráfico HTTP en el firewall (ufw)..."
+sudo ufw allow 'Apache'
+sudo ufw reload
