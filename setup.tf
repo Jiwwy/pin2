@@ -88,6 +88,26 @@ resource "aws_security_group" "sg" {
   }
 }
 
+provider "docker" {
+  host = "unix:///var/run/docker.sock"
+}
+
+# Descargar la imagen de NGINX
+resource "docker_image" "nginx" {
+  name         = "nginx:latest"
+  keep_locally = false
+}
+
+# Crear un contenedor con la imagen NGINX
+resource "docker_container" "nginx_container" {
+  name  = "nginx_tf"
+  image = docker_image.nginx.latest
+  ports {
+    internal = 80
+    external = 8080
+  }
+}
+
 output "Webserver-Public-IP" {
   value = aws_instance.webserver.public_ip
 }
