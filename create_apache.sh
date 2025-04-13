@@ -44,10 +44,11 @@ sudo chmod +x /usr/local/bin/docker-compose
 mkdir -p /home/ubuntu/app
 
 # Descargar el archivo docker-compose.yml
-cd /home/ec2-ubuntu/app
+cd /home/ubuntu/app
 sudo git clone https://github.com/Jiwwy/docker-monitoreo.git
-cd /home/ec2-ubuntu/app/docker-monitoreo
 
+# Crear Contenedores de monitoreo
+cd /home/ubuntu/app/docker-monitoreo
 sudo docker-compose up -d
 
 
