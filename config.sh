@@ -41,14 +41,14 @@ sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 
 # Crear un directorio para la aplicación
-mkdir -p /home/ubuntu/app
+mkdir -p /home/ubuntu
 
 # Descargar el archivo docker-compose.yml
-cd /home/ubuntu/app
-sudo git clone https://github.com/Jiwwy/docker-monitoreo.git
+cd /home/ubuntu
+sudo git clone https://github.com/Jiwwy/nginx-monitoring.git
 
 # Crear Contenedores de monitoreo
-cd /home/ubuntu/app/docker-monitoreo
-sudo docker-compose up -d
+cd /home/ubuntu/nginx-monitoring
+docker-compose up -d --build
 
 
