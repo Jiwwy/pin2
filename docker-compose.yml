@@ -1,0 +1,10 @@
+# docker/docker-compose.yml
+version: '3'
+services:
+  nginx:
+    image: nginx:latest
+    container_name: my-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./html:/usr/share/nginx/html
