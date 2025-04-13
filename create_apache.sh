@@ -35,5 +35,19 @@ sudo systemctl enable docker
 echo "Agregando usuario actual al grupo docker..."
 sudo usermod -aG docker $USER
 
-echo "Instalación completa. Cierra sesión y vuelve a iniciarla para usar Docker sin sudo."
-docker --version
+echo "Instalando Docker Compose (binario)..."
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" \
+  -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+# Crear un directorio para la aplicación
+mkdir -p /home/ubuntu/app
+
+# Descargar el archivo docker-compose.yml
+cd /home/ec2-ubuntu/app
+git clone https://github.com/Jiwwy/docker-monitoreo.git
+cd /home/ec2-ubuntu/app/docker-monitoreo
+
+docker-compose up -d
+
+
