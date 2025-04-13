@@ -52,3 +52,4 @@ cd /home/ubuntu/nginx-monitoring
 docker-compose up -d --build
 
 
+
