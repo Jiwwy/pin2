@@ -45,9 +45,9 @@ mkdir -p /home/ubuntu/app
 
 # Descargar el archivo docker-compose.yml
 cd /home/ec2-ubuntu/app
-git clone https://github.com/Jiwwy/docker-monitoreo.git
+sudo git clone https://github.com/Jiwwy/docker-monitoreo.git
 cd /home/ec2-ubuntu/app/docker-monitoreo
 
-docker-compose up -d
+sudo docker-compose up -d
 
 
