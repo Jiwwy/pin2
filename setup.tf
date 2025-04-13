@@ -87,36 +87,6 @@ resource "aws_security_group" "sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-
-terraform {
-  required_providers {
-    docker = {
-      source  = "kreuzwerker/docker"
-      version = "~> 3.0.2"
-    }
-  }
-}
-
-provider "docker" {
-  host = "unix:///var/run/docker.sock"
-}
-
-# Descargar la imagen de NGINX
-resource "docker_image" "nginx" {
-  name         = "nginx:latest"
-  keep_locally = false
-}
-
-# Crear un contenedor con la imagen NGINX
-resource "docker_container" "nginx_container" {
-  name  = "nginx_tf"
-  image = docker_image.nginx.name
-  ports {
-    internal = 80
-    external = 8080
-  }
-}
-
 output "Webserver-Public-IP" {
   value = aws_instance.webserver.public_ip
 }
