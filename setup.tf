@@ -89,6 +89,13 @@ resource "aws_security_group" "sg" {
   }
  ingress {
     description = "allow traffic from TCP/80"
+    from_port   = 5432
+    to_port     = 5432
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+ ingress {
+    description = "allow traffic from TCP/80"
     from_port   = 3000
     to_port     = 3000
     protocol    = "tcp"
